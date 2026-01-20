@@ -1,4 +1,4 @@
-import { Clock, Ticket, Car, Lightbulb, MapPin, Phone } from "lucide-react";
+import { Clock, Car, Lightbulb, MapPin, Phone } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const infoItems = [
@@ -12,23 +12,12 @@ const infoItems = [
     ],
   },
   {
-    icon: Ticket,
-    title: "Harga Tiket",
-    items: [
-      "Dewasa: Rp 25.000 / orang",
-      "Anak-anak: Rp 15.000 / orang",
-      "Paket Keluarga (4 orang): Rp 75.000",
-      "Sewa Gazebo: Rp 50.000 - Rp 100.000",
-    ],
-  },
-  {
     icon: Car,
-    title: "Akses Transportasi",
+    title: "Biaya Parkir",
     items: [
-      "30 menit dari pusat Kota Malang",
-      "Tersedia parkir luas untuk mobil & motor",
-      "Bisa dijangkau dengan angkutan umum",
-      "Koordinat GPS: -7.9234, 112.6127",
+      "Tiket Masuk: GRATIS",
+      "Parkir Mobil: Rp 5.000",
+      "Parkir Motor: Rp 3.000",
     ],
   },
   {
@@ -61,7 +50,7 @@ const Information = () => {
         </div>
 
         {/* Info Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto mb-16">
           {infoItems.map((item, index) => (
             <Card
               key={item.title}
@@ -69,7 +58,7 @@ const Information = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardContent className="p-6 md:p-8">
-                <div className="flex items-start gap-4">
+                <div className="flex flex-col items-center text-center gap-4">
                   <div className="p-3 rounded-xl bg-primary/10">
                     <item.icon className="w-6 h-6 text-primary" />
                   </div>
@@ -79,7 +68,7 @@ const Information = () => {
                     </h3>
                     <ul className="space-y-2">
                       {item.items.map((text, i) => (
-                        <li key={i} className="text-muted-foreground text-sm flex items-start gap-2">
+                        <li key={i} className="text-muted-foreground text-sm flex items-start gap-2 justify-center">
                           <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                           {text}
                         </li>

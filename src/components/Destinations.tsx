@@ -1,40 +1,48 @@
 import DestinationCard from "./DestinationCard";
-import kolamRenang from "@/assets/kolam-renang.jpg";
-import wahanaAnak from "@/assets/wahana-anak.jpg";
-import kuliner from "@/assets/kuliner.jpg";
-import taman from "@/assets/taman.jpg";
-import sumberAir from "@/assets/sumber-air.jpg";
+import fasilitasDapoer from "@/assets/fasilitas-dapoer.jpg";
+import fasilitasTamanPohon from "@/assets/fasilitas-taman-pohon.jpg";
+import fasilitasAreaSantai from "@/assets/fasilitas-area-santai.jpg";
+import fasilitasMusholla from "@/assets/fasilitas-musholla.jpg";
+import fasilitasGazebo from "@/assets/fasilitas-gazebo.jpg";
+import fasilitasWarung from "@/assets/fasilitas-warung.jpg";
+import fasilitasKolamPancing from "@/assets/fasilitas-kolam-pancing.jpg";
 
 const destinations = [
   {
-    image: kolamRenang,
-    title: "Kolam Renang Utama",
-    description: "Kolam renang berukuran besar dengan air jernih dari sumber alami. Dilengkapi dengan area dangkal untuk anak-anak.",
-    category: "Wisata Air",
-  },
-  {
-    image: wahanaAnak,
-    title: "Wahana Bermain Anak",
-    description: "Area bermain air khusus anak-anak dengan perosotan warna-warni dan water playground yang aman.",
-    category: "Keluarga",
-  },
-  {
-    image: sumberAir,
-    title: "Sumber Air Alami",
-    description: "Nikmati kesegaran air dari mata air pegunungan yang mengalir langsung ke kolam-kolam pemandian.",
+    image: fasilitasKolamPancing,
+    title: "Kolam Pancing",
+    description: "Nikmati serunya memancing ikan Mujaer, Bandeng, dan Tombro dengan suasana alam yang asri.",
     category: "Wisata Alam",
   },
   {
-    image: taman,
+    image: fasilitasDapoer,
+    title: "Dapoer THR Sumber Duren",
+    description: "Area kuliner dengan berbagai menu makanan lezat dan minuman segar untuk pengunjung.",
+    category: "Kuliner",
+  },
+  {
+    image: fasilitasWarung,
+    title: "Warung Budaya",
+    description: "Warung tradisional dengan arsitektur khas Jawa yang dikelilingi taman tropis yang indah.",
+    category: "Kuliner",
+  },
+  {
+    image: fasilitasGazebo,
     title: "Taman & Gazebo",
-    description: "Area bersantai dengan gazebo-gazebo nyaman di tengah taman tropis yang rindang dan asri.",
+    description: "Area hijau yang luas dengan gazebo untuk bersantai menikmati udara segar pegunungan.",
     category: "Relaksasi",
   },
   {
-    image: kuliner,
-    title: "Wisata Kuliner",
-    description: "Berbagai pilihan makanan khas Malang dan kuliner nusantara tersedia di area food court kami.",
-    category: "Kuliner",
+    image: fasilitasAreaSantai,
+    title: "Area Santai",
+    description: "Tempat duduk nyaman di bawah rindangnya pepohonan untuk berkumpul bersama keluarga.",
+    category: "Keluarga",
+  },
+  {
+    image: fasilitasMusholla,
+    title: "Musholla",
+    description: "Fasilitas ibadah yang bersih dan nyaman untuk menunaikan sholat bagi pengunjung.",
+    category: "Fasilitas",
   },
 ];
 

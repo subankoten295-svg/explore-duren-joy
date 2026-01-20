@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Send, Instagram, Facebook, Mail, Phone, MapPin } from "lucide-react";
+import { Send, Instagram, Facebook, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -9,7 +9,6 @@ import { toast } from "sonner";
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
     phone: "",
     message: "",
   });
@@ -17,7 +16,7 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast.success("Pesan Anda telah terkirim! Kami akan segera menghubungi Anda.");
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    setFormData({ name: "", phone: "", message: "" });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -58,22 +57,14 @@ const Contact = () => {
                     className="h-12"
                   />
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <Input
-                    name="email"
-                    type="email"
-                    placeholder="Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="h-12"
-                  />
+                <div>
                   <Input
                     name="phone"
                     type="tel"
                     placeholder="No. Telepon"
                     value={formData.phone}
                     onChange={handleChange}
+                    required
                     className="h-12"
                   />
                 </div>
@@ -131,23 +122,6 @@ const Contact = () => {
                     <p className="text-muted-foreground text-sm">
                       (0341) 123-4567<br />
                       +62 812-3456-7890 (WhatsApp)
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 card-shadow">
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-xl bg-primary/10">
-                    <Mail className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-card-foreground mb-1">Email</h4>
-                    <p className="text-muted-foreground text-sm">
-                      info@thrsumberduren.com<br />
-                      reservasi@thrsumberduren.com
                     </p>
                   </div>
                 </div>
