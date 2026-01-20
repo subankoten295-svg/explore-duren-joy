@@ -120,8 +120,7 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-card-foreground mb-1">Telepon</h4>
                     <p className="text-muted-foreground text-sm">
-                      (0341) 123-4567<br />
-                      +62 812-3456-7890 (WhatsApp)
+                      0857-3001-3549 (WhatsApp)
                     </p>
                   </div>
                 </div>

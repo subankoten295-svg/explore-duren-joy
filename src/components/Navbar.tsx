@@ -49,12 +49,6 @@ const Navbar = () => {
                 {link.name}
               </button>
             ))}
-            <Button
-              onClick={() => scrollToSection("#kontak")}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground"
-            >
-              Pesan Sekarang
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -79,14 +73,6 @@ const Navbar = () => {
                   {link.name}
                 </button>
               ))}
-              <div className="px-4 pt-2">
-                <Button
-                  onClick={() => scrollToSection("#kontak")}
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
-                >
-                  Pesan Sekarang
-                </Button>
-              </div>
             </div>
           </div>
         )}

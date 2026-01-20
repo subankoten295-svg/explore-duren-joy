@@ -6,9 +6,7 @@ const infoItems = [
     icon: Clock,
     title: "Jam Operasional",
     items: [
-      "Senin - Jumat: 08.00 - 17.00 WIB",
-      "Sabtu - Minggu: 07.00 - 18.00 WIB",
-      "Hari Libur Nasional: 07.00 - 18.00 WIB",
+      "Setiap Hari: 09.00 - 17.00 WIB",
     ],
   },
   {
@@ -100,7 +98,7 @@ const Information = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <Phone className="w-5 h-5" />
-                    <span className="text-sm">(0341) 123-4567</span>
+                    <span className="text-sm">0857-3001-3549</span>
                   </div>
                 </div>
               </div>

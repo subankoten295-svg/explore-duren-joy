@@ -13,36 +13,42 @@ const destinations = [
     title: "Kolam Pancing",
     description: "Nikmati serunya memancing ikan Mujaer, Bandeng, dan Tombro dengan suasana alam yang asri.",
     category: "Wisata Alam",
+    slug: "kolam-pancing",
   },
   {
     image: fasilitasDapoer,
     title: "Dapoer THR Sumber Duren",
     description: "Area kuliner dengan berbagai menu makanan lezat dan minuman segar untuk pengunjung.",
     category: "Kuliner",
+    slug: "dapoer-thr",
   },
   {
     image: fasilitasWarung,
     title: "Warung Budaya",
     description: "Warung tradisional dengan arsitektur khas Jawa yang dikelilingi taman tropis yang indah.",
     category: "Kuliner",
+    slug: "warung-budaya",
   },
   {
     image: fasilitasGazebo,
     title: "Taman & Gazebo",
     description: "Area hijau yang luas dengan gazebo untuk bersantai menikmati udara segar pegunungan.",
     category: "Relaksasi",
+    slug: "taman-gazebo",
   },
   {
     image: fasilitasAreaSantai,
     title: "Area Santai",
     description: "Tempat duduk nyaman di bawah rindangnya pepohonan untuk berkumpul bersama keluarga.",
     category: "Keluarga",
+    slug: "area-santai",
   },
   {
     image: fasilitasMusholla,
     title: "Musholla",
     description: "Fasilitas ibadah yang bersih dan nyaman untuk menunaikan sholat bagi pengunjung.",
     category: "Fasilitas",
+    slug: "musholla",
   },
 ];
 
