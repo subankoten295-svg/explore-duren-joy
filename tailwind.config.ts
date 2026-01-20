@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif'],
+        serif: ['Playfair Display', 'serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -47,6 +51,16 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        emerald: {
+          DEFAULT: "hsl(var(--emerald))",
+          light: "hsl(var(--emerald-light))",
+        },
+        cyan: {
+          DEFAULT: "hsl(var(--cyan))",
+          light: "hsl(var(--cyan-light))",
+        },
+        sand: "hsl(var(--sand))",
+        forest: "hsl(var(--forest))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -65,25 +79,32 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        shimmer: "shimmer 2s infinite linear",
+      },
+      backgroundImage: {
+        'hero-gradient': 'linear-gradient(135deg, hsl(160 84% 39% / 0.9), hsl(189 94% 43% / 0.8))',
+        'nature-gradient': 'linear-gradient(135deg, hsl(158 64% 25%), hsl(160 84% 39%))',
+        'water-gradient': 'linear-gradient(135deg, hsl(189 94% 43%), hsl(187 85% 53%))',
+      },
+      boxShadow: {
+        'soft': '0 4px 20px -2px hsl(180 25% 15% / 0.08)',
+        'card': '0 8px 30px -4px hsl(160 84% 39% / 0.15)',
+        'elevated': '0 20px 50px -10px hsl(180 25% 15% / 0.2)',
       },
     },
   },
