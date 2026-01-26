@@ -10,6 +10,7 @@ import fasilitasMusholla from "@/assets/fasilitas-musholla.jpg";
 import fasilitasGazebo from "@/assets/fasilitas-gazebo.jpg";
 import fasilitasWarung from "@/assets/fasilitas-warung.jpg";
 import fasilitasKolamPancing from "@/assets/fasilitas-kolam-pancing.jpg";
+import fasilitasMusicCorner from "@/assets/fasilitas-music-corner.jpg";
 
 const facilitiesData: Record<string, {
   image: string;
@@ -95,6 +96,19 @@ const facilitiesData: Record<string, {
       "Ruangan ber-AC",
       "Perlengkapan sholat tersedia",
       "Lokasi strategis di area wisata",
+    ],
+  },
+  "music-corner": {
+    image: fasilitasMusicCorner,
+    title: "Music Corner",
+    description: "Panggung musik outdoor untuk hiburan dan penampilan live music di tengah suasana alam.",
+    category: "Hiburan",
+    fullDescription: "Music Corner THR Sumber Duren adalah panggung musik outdoor yang menghadirkan hiburan live music di tengah suasana alam yang asri. Tempat yang sempurna untuk menikmati pertunjukan musik sambil bersantai bersama keluarga dan teman.",
+    features: [
+      "Panggung musik outdoor",
+      "Pertunjukan live music",
+      "Suasana alam yang asri",
+      "Cocok untuk acara komunitas",
     ],
   },
 };

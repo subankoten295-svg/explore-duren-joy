@@ -6,6 +6,7 @@ import fasilitasMusholla from "@/assets/fasilitas-musholla.jpg";
 import fasilitasGazebo from "@/assets/fasilitas-gazebo.jpg";
 import fasilitasWarung from "@/assets/fasilitas-warung.jpg";
 import fasilitasKolamPancing from "@/assets/fasilitas-kolam-pancing.jpg";
+import fasilitasMusicCorner from "@/assets/fasilitas-music-corner.jpg";
 
 const destinations = [
   {
@@ -49,6 +50,13 @@ const destinations = [
     description: "Fasilitas ibadah yang bersih dan nyaman untuk menunaikan sholat bagi pengunjung.",
     category: "Fasilitas",
     slug: "musholla",
+  },
+  {
+    image: fasilitasMusicCorner,
+    title: "Music Corner",
+    description: "Panggung musik outdoor untuk hiburan dan penampilan live music di tengah suasana alam.",
+    category: "Hiburan",
+    slug: "music-corner",
   },
 ];
 
