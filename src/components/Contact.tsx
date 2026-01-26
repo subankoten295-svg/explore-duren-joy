@@ -18,76 +18,60 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
-          {/* Google Maps */}
-          <Card className="border-0 card-shadow overflow-hidden">
-            <CardContent className="p-0">
-              <iframe
-                title="Lokasi THR Sumber Duren"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.5!2d112.4833!3d-8.1167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd615c9d9d9d9d9%3A0x0!2zOMKwMDcnMDAuMCJTIDExMsKwMjknMDAuMCJF!5e0!3m2!1sid!2sid!4v1706000000000!5m2!1sid!2sid"
-                className="w-full h-80 lg:h-full min-h-[320px]"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          {/* Address Card */}
+          <Card className="border-0 card-shadow">
+            <CardContent className="p-6">
+              <div className="flex flex-col items-center text-center gap-4">
+                <div className="p-3 rounded-xl bg-primary/10">
+                  <MapPin className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-card-foreground mb-1">Alamat</h4>
+                  <p className="text-muted-foreground text-sm">
+                    Jl. Raya, RT.32/RW.010, Kecopokan<br />
+                    Kec. Sumberpucung, Kabupaten Malang<br />
+                    Jawa Timur 65165
+                  </p>
+                </div>
+              </div>
             </CardContent>
           </Card>
 
-          {/* Contact Info */}
-          <div className="space-y-6">
-            {/* Contact Cards */}
-            <Card className="border-0 card-shadow">
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-xl bg-primary/10">
-                    <MapPin className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-card-foreground mb-1">Alamat</h4>
-                    <p className="text-muted-foreground text-sm">
-                      Jl. Raya, RT.32/RW.010, Kecopokan<br />
-                      Kec. Sumberpucung, Kabupaten Malang<br />
-                      Jawa Timur 65165
-                    </p>
-                  </div>
+          {/* Phone Card */}
+          <Card className="border-0 card-shadow">
+            <CardContent className="p-6">
+              <div className="flex flex-col items-center text-center gap-4">
+                <div className="p-3 rounded-xl bg-primary/10">
+                  <Phone className="w-6 h-6 text-primary" />
                 </div>
-              </CardContent>
-            </Card>
+                <div>
+                  <h4 className="font-semibold text-card-foreground mb-1">Telepon</h4>
+                  <p className="text-muted-foreground text-sm">
+                    0857-3001-3549 (WhatsApp)
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
 
-            <Card className="border-0 card-shadow">
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-xl bg-primary/10">
-                    <Phone className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-card-foreground mb-1">Telepon</h4>
-                    <p className="text-muted-foreground text-sm">
-                      0857-3001-3549 (WhatsApp)
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Social Media */}
-            <Card className="border-0 water-gradient text-white">
-              <CardContent className="p-6">
-                <h4 className="font-semibold mb-4">Ikuti Media Sosial Kami</h4>
-                <div className="flex gap-4">
-                  <a
-                    href="https://instagram.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 rounded-xl bg-white/20 hover:bg-white/30 transition-colors"
-                    aria-label="Instagram"
-                  >
-                    <Instagram className="w-6 h-6" />
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+          {/* Social Media Card */}
+          <Card className="border-0 water-gradient text-white">
+            <CardContent className="p-6">
+              <div className="flex flex-col items-center text-center gap-4">
+                <h4 className="font-semibold">Ikuti Media Sosial Kami</h4>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-xl bg-white/20 hover:bg-white/30 transition-colors"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-6 h-6" />
+                </a>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>
