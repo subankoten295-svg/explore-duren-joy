@@ -1,28 +1,7 @@
-import { useState } from "react";
-import { Send, Instagram, Facebook, Phone, MapPin } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Instagram, Phone, MapPin } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { toast } from "sonner";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success("Pesan Anda telah terkirim! Kami akan segera menghubungi Anda.");
-    setFormData({ name: "", phone: "", message: "" });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
   return (
     <section id="kontak" className="py-20 md:py-28 bg-muted/50">
       <div className="container mx-auto px-4">
@@ -40,53 +19,17 @@ const Contact = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
-          {/* Contact Form */}
-          <Card className="border-0 card-shadow">
-            <CardContent className="p-6 md:p-8">
-              <h3 className="font-serif text-2xl font-semibold text-card-foreground mb-6">
-                Kirim Pesan
-              </h3>
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div>
-                  <Input
-                    name="name"
-                    placeholder="Nama Lengkap"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="h-12"
-                  />
-                </div>
-                <div>
-                  <Input
-                    name="phone"
-                    type="tel"
-                    placeholder="No. Telepon"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    className="h-12"
-                  />
-                </div>
-                <div>
-                  <Textarea
-                    name="message"
-                    placeholder="Tulis pesan Anda di sini..."
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={5}
-                    className="resize-none"
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-                >
-                  <Send className="w-4 h-4 mr-2" />
-                  Kirim Pesan
-                </Button>
-              </form>
+          {/* Google Maps */}
+          <Card className="border-0 card-shadow overflow-hidden">
+            <CardContent className="p-0">
+              <iframe
+                title="Lokasi THR Sumber Duren"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.5!2d112.4833!3d-8.1167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd615c9d9d9d9d9%3A0x0!2zOMKwMDcnMDAuMCJTIDExMsKwMjknMDAuMCJF!5e0!3m2!1sid!2sid!4v1706000000000!5m2!1sid!2sid"
+                className="w-full h-80 lg:h-full min-h-[320px]"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
             </CardContent>
           </Card>
 
@@ -102,9 +45,9 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-card-foreground mb-1">Alamat</h4>
                     <p className="text-muted-foreground text-sm">
-                      Jl. Raya Sumber Duren, Desa Duren<br />
-                      Kec. Pakisaji, Kabupaten Malang<br />
-                      Jawa Timur 65162
+                      Jl. Raya, RT.32/RW.010, Kecopokan<br />
+                      Kec. Sumberpucung, Kabupaten Malang<br />
+                      Jawa Timur 65165
                     </p>
                   </div>
                 </div>
@@ -133,18 +76,13 @@ const Contact = () => {
                 <h4 className="font-semibold mb-4">Ikuti Media Sosial Kami</h4>
                 <div className="flex gap-4">
                   <a
-                    href="#"
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="p-3 rounded-xl bg-white/20 hover:bg-white/30 transition-colors"
                     aria-label="Instagram"
                   >
                     <Instagram className="w-6 h-6" />
-                  </a>
-                  <a
-                    href="#"
-                    className="p-3 rounded-xl bg-white/20 hover:bg-white/30 transition-colors"
-                    aria-label="Facebook"
-                  >
-                    <Facebook className="w-6 h-6" />
                   </a>
                 </div>
               </CardContent>

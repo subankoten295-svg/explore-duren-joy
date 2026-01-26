@@ -94,7 +94,7 @@ const Information = () => {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                   <div className="flex items-center gap-2">
                     <MapPin className="w-5 h-5" />
-                    <span className="text-sm">Desa Duren, Kec. Pakisaji, Malang</span>
+                    <span className="text-sm">Jl. Raya, RT.32/RW.010, Kecopokan, Kec. Sumberpucung, Malang</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Phone className="w-5 h-5" />
@@ -102,13 +102,14 @@ const Information = () => {
                   </div>
                 </div>
               </div>
-              <div className="w-full md:w-80 h-48 bg-white/20 rounded-xl flex items-center justify-center">
+              <div className="w-full md:w-80 h-48 bg-white/20 rounded-xl overflow-hidden">
                 <iframe
                   title="Lokasi THR Sumber Duren"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.0!2d112.6!3d-7.92!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNTUnMTIuMCJTIDExMsKwMzYnNDUuNiJF!5e0!3m2!1sen!2sid!4v1234567890"
-                  className="w-full h-full rounded-xl"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.5!2d112.4833!3d-8.1167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd615c9d9d9d9d9%3A0x0!2zOMKwMDcnMDAuMCJTIDExMsKwMjknMDAuMCJF!5e0!3m2!1sid!2sid!4v1706000000000!5m2!1sid!2sid"
+                  className="w-full h-full"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
                 />
               </div>
             </div>
