@@ -211,7 +211,7 @@ const FasilitasDetail = () => {
                     <Phone className="w-5 h-5 text-primary mt-0.5" />
                     <div>
                       <p className="text-sm font-medium text-foreground">Telepon</p>
-                      <p className="text-sm text-muted-foreground">0857-3001-3549</p>
+                      <p className="text-sm text-muted-foreground">087751122679</p>
                     </div>
                   </div>
                 </div>

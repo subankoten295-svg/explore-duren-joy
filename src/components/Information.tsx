@@ -98,7 +98,7 @@ const Information = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <Phone className="w-5 h-5" />
-                    <span className="text-sm">0857-3001-3549</span>
+                    <span className="text-sm">087751122679</span>
                   </div>
                 </div>
               </div>
