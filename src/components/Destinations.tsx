@@ -54,7 +54,7 @@ const destinations = [
   {
     image: fasilitasMusicCorner,
     title: "Music Corner",
-    description: "Panggung musik outdoor untuk hiburan dan penampilan live music di tengah suasana alam.",
+    description: "Panggung musik outdoor untuk hiburan dan penampilan live music setiap hari Minggu.",
     category: "Hiburan",
     slug: "music-corner",
   },

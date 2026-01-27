@@ -60,18 +60,18 @@ const Contact = () => {
             rel="noopener noreferrer"
             className="block"
           >
-            <Card className="border-0 card-shadow group hover:scale-105 transition-all duration-300 cursor-pointer h-full bg-[#25D366]">
+            <Card className="border-0 card-shadow group hover:scale-105 transition-all duration-300 cursor-pointer h-full">
               <CardContent className="p-6 h-full">
                 <div className="flex flex-col items-center text-center gap-4 h-full justify-center">
-                  <div className="w-14 h-14 rounded-full bg-white/20 group-hover:bg-white/30 transition-colors flex items-center justify-center">
-                    <Phone className="w-7 h-7 text-white" />
+                  <div className="w-14 h-14 rounded-full bg-[#25D366]/10 group-hover:bg-[#25D366]/20 transition-colors flex items-center justify-center">
+                    <Phone className="w-7 h-7 text-[#25D366]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white text-base mb-2">WhatsApp</h4>
-                    <p className="text-white/90 text-sm">
+                    <h4 className="font-semibold text-card-foreground text-base mb-2">WhatsApp</h4>
+                    <p className="text-muted-foreground text-sm">
                       {phoneNumber}
                     </p>
-                    <span className="inline-block mt-3 text-xs text-white/80 font-medium">
+                    <span className="inline-block mt-3 text-xs text-[#25D366] font-medium">
                       Chat Sekarang →
                     </span>
                   </div>
@@ -87,18 +87,18 @@ const Contact = () => {
             rel="noopener noreferrer"
             className="block"
           >
-            <Card className="border-0 card-shadow group hover:scale-105 transition-all duration-300 cursor-pointer h-full bg-gradient-to-br from-[#833AB4] via-[#E1306C] to-[#F77737]">
+            <Card className="border-0 card-shadow group hover:scale-105 transition-all duration-300 cursor-pointer h-full">
               <CardContent className="p-6 h-full">
                 <div className="flex flex-col items-center text-center gap-4 h-full justify-center">
-                  <div className="w-14 h-14 rounded-full bg-white/20 group-hover:bg-white/30 transition-colors flex items-center justify-center">
-                    <Instagram className="w-7 h-7 text-white" />
+                  <div className="w-14 h-14 rounded-full bg-[#E1306C]/10 group-hover:bg-[#E1306C]/20 transition-colors flex items-center justify-center">
+                    <Instagram className="w-7 h-7 text-[#E1306C]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white text-base mb-2">Instagram</h4>
-                    <p className="text-white/90 text-sm">
+                    <h4 className="font-semibold text-card-foreground text-base mb-2">Instagram</h4>
+                    <p className="text-muted-foreground text-sm">
                       @thr_sumberduren
                     </p>
-                    <span className="inline-block mt-3 text-xs text-white/80 font-medium">
+                    <span className="inline-block mt-3 text-xs text-[#E1306C] font-medium">
                       Follow Kami →
                     </span>
                   </div>

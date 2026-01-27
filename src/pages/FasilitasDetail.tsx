@@ -101,12 +101,12 @@ const facilitiesData: Record<string, {
   "music-corner": {
     image: fasilitasMusicCorner,
     title: "Music Corner",
-    description: "Panggung musik outdoor untuk hiburan dan penampilan live music di tengah suasana alam.",
+    description: "Panggung musik outdoor untuk hiburan dan penampilan live music setiap hari Minggu.",
     category: "Hiburan",
-    fullDescription: "Music Corner THR Sumber Duren adalah panggung musik outdoor yang menghadirkan hiburan live music di tengah suasana alam yang asri. Tempat yang sempurna untuk menikmati pertunjukan musik sambil bersantai bersama keluarga dan teman.",
+    fullDescription: "Music Corner THR Sumber Duren adalah panggung musik outdoor yang menghadirkan hiburan live music di tengah suasana alam yang asri. Pertunjukan musik diadakan setiap hari Minggu, menjadi agenda rutin yang ditunggu-tunggu pengunjung. Tempat yang sempurna untuk menikmati pertunjukan musik sambil bersantai bersama keluarga dan teman.",
     features: [
       "Panggung musik outdoor",
-      "Pertunjukan live music",
+      "Pertunjukan live music setiap hari Minggu",
       "Suasana alam yang asri",
       "Cocok untuk acara komunitas",
     ],
