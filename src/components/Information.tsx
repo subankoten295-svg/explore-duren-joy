@@ -1,4 +1,4 @@
-import { Clock, Car, Lightbulb, MapPin, Phone } from "lucide-react";
+import { Clock, Car, Lightbulb } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const infoItems = [
@@ -79,42 +79,6 @@ const Information = () => {
           ))}
         </div>
 
-        {/* Location Highlight */}
-        <Card className="border-0 nature-gradient text-white overflow-hidden">
-          <CardContent className="p-8 md:p-12">
-            <div className="flex flex-col md:flex-row items-center gap-8">
-              <div className="flex-1 text-center md:text-left">
-                <h3 className="font-serif text-2xl md:text-3xl font-bold mb-4">
-                  Lokasi Strategis
-                </h3>
-                <p className="text-white/90 mb-6">
-                  THR Sumber Duren terletak di kawasan yang sejuk dengan akses mudah dari pusat Kota Malang. 
-                  Nikmati perjalanan yang menyenangkan melewati pemandangan alam yang indah.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                  <div className="flex items-center gap-2">
-                    <MapPin className="w-5 h-5" />
-                    <span className="text-sm">Jl. Raya, RT.32/RW.010, Kecopokan, Kec. Sumberpucung, Malang</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Phone className="w-5 h-5" />
-                    <span className="text-sm">087751122679</span>
-                  </div>
-                </div>
-              </div>
-              <div className="w-full md:w-80 h-48 bg-white/20 rounded-xl overflow-hidden">
-                <iframe
-                  title="Lokasi THR Sumber Duren"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.5!2d112.4833!3d-8.1167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd615c9d9d9d9d9%3A0x0!2zOMKwMDcnMDAuMCJTIDExMsKwMjknMDAuMCJF!5e0!3m2!1sid!2sid!4v1706000000000!5m2!1sid!2sid"
-                  className="w-full h-full"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  allowFullScreen
-                />
-              </div>
-            </div>
-          </CardContent>
-        </Card>
       </div>
     </section>
   );

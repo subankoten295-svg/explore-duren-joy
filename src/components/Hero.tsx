@@ -19,7 +19,8 @@ const Hero = () => {
           alt="THR Sumber Duren Malang"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 hero-overlay" />
+        {/* Lighter overlay - more transparent to show image better */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/50" />
       </div>
 
       {/* Content */}
