@@ -5,6 +5,7 @@ const Contact = () => {
   const phoneNumber = "087751122679";
   const whatsappLink = `https://wa.me/62${phoneNumber.substring(1)}`;
   const instagramLink = "https://www.instagram.com/thr_sumberduren?igsh=MWV0YXNnb3NrNWJxNg==";
+  const mapsLink = "https://www.google.com/maps/search/?api=1&query=Jl.+Raya+RT.32+RW.010+Kecopokan+Sumberpucung+Malang";
 
   return (
     <section id="kontak" className="py-20 md:py-28 bg-muted/50">
@@ -22,25 +23,35 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {/* Address Card */}
-          <Card className="border-0 card-shadow group hover:scale-105 transition-all duration-300">
-            <CardContent className="p-8">
-              <div className="flex flex-col items-center text-center gap-5">
-                <div className="p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 group-hover:from-primary/30 group-hover:to-secondary/30 transition-colors">
-                  <MapPin className="w-8 h-8 text-primary" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          {/* Address Card - Clickable to Maps */}
+          <a
+            href={mapsLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block"
+          >
+            <Card className="border-0 card-shadow group hover:scale-105 transition-all duration-300 cursor-pointer h-full">
+              <CardContent className="p-6 h-full">
+                <div className="flex flex-col items-center text-center gap-4 h-full justify-center">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 group-hover:from-primary/30 group-hover:to-secondary/30 transition-colors flex items-center justify-center">
+                    <MapPin className="w-7 h-7 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-card-foreground text-base mb-2">Lokasi</h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      Jl. Raya, RT.32/RW.010<br />
+                      Kecopokan, Sumberpucung<br />
+                      Malang 65165
+                    </p>
+                    <span className="inline-block mt-3 text-xs text-primary font-medium">
+                      Lihat di Maps →
+                    </span>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-card-foreground text-lg mb-2">Alamat</h4>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    Jl. Raya, RT.32/RW.010, Kecopokan<br />
-                    Kec. Sumberpucung, Kabupaten Malang<br />
-                    Jawa Timur 65165
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </a>
 
           {/* WhatsApp Card */}
           <a
@@ -49,19 +60,19 @@ const Contact = () => {
             rel="noopener noreferrer"
             className="block"
           >
-            <Card className="border-0 card-shadow group hover:scale-105 transition-all duration-300 cursor-pointer h-full bg-gradient-to-br from-green-500 to-green-600 text-white">
-              <CardContent className="p-8 h-full">
-                <div className="flex flex-col items-center text-center gap-5 h-full justify-center">
-                  <div className="p-4 rounded-2xl bg-white/20 group-hover:bg-white/30 transition-colors">
-                    <Phone className="w-8 h-8" />
+            <Card className="border-0 card-shadow group hover:scale-105 transition-all duration-300 cursor-pointer h-full bg-[#25D366]">
+              <CardContent className="p-6 h-full">
+                <div className="flex flex-col items-center text-center gap-4 h-full justify-center">
+                  <div className="w-14 h-14 rounded-full bg-white/20 group-hover:bg-white/30 transition-colors flex items-center justify-center">
+                    <Phone className="w-7 h-7 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-lg mb-2">WhatsApp</h4>
-                    <p className="text-white/90 text-sm mb-3">
-                      Hubungi kami langsung
-                    </p>
-                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 text-sm font-medium">
+                    <h4 className="font-semibold text-white text-base mb-2">WhatsApp</h4>
+                    <p className="text-white/90 text-sm">
                       {phoneNumber}
+                    </p>
+                    <span className="inline-block mt-3 text-xs text-white/80 font-medium">
+                      Chat Sekarang →
                     </span>
                   </div>
                 </div>
@@ -76,19 +87,19 @@ const Contact = () => {
             rel="noopener noreferrer"
             className="block"
           >
-            <Card className="border-0 card-shadow group hover:scale-105 transition-all duration-300 cursor-pointer h-full bg-gradient-to-br from-pink-500 via-purple-500 to-orange-400 text-white">
-              <CardContent className="p-8 h-full">
-                <div className="flex flex-col items-center text-center gap-5 h-full justify-center">
-                  <div className="p-4 rounded-2xl bg-white/20 group-hover:bg-white/30 transition-colors">
-                    <Instagram className="w-8 h-8" />
+            <Card className="border-0 card-shadow group hover:scale-105 transition-all duration-300 cursor-pointer h-full bg-gradient-to-br from-[#833AB4] via-[#E1306C] to-[#F77737]">
+              <CardContent className="p-6 h-full">
+                <div className="flex flex-col items-center text-center gap-4 h-full justify-center">
+                  <div className="w-14 h-14 rounded-full bg-white/20 group-hover:bg-white/30 transition-colors flex items-center justify-center">
+                    <Instagram className="w-7 h-7 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-lg mb-2">Instagram</h4>
-                    <p className="text-white/90 text-sm mb-3">
-                      Ikuti kami di Instagram
-                    </p>
-                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 text-sm font-medium">
+                    <h4 className="font-semibold text-white text-base mb-2">Instagram</h4>
+                    <p className="text-white/90 text-sm">
                       @thr_sumberduren
+                    </p>
+                    <span className="inline-block mt-3 text-xs text-white/80 font-medium">
+                      Follow Kami →
                     </span>
                   </div>
                 </div>
