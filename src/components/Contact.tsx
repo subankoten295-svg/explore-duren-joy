@@ -1,4 +1,4 @@
-import { Instagram, Phone, MapPin } from "lucide-react";
+import { Instagram, Phone, MapPin, ExternalLink } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const Contact = () => {
@@ -7,15 +7,58 @@ const Contact = () => {
   const instagramLink = "https://www.instagram.com/thr_sumberduren?igsh=MWV0YXNnb3NrNWJxNg==";
   const mapsLink = "https://www.google.com/maps/search/?api=1&query=Jl.+Raya+RT.32+RW.010+Kecopokan+Kec.+Sumberpucung+Kabupaten+Malang+Jawa+Timur+65165";
 
+  const contactItems = [
+    {
+      icon: MapPin,
+      title: "Lokasi",
+      content: (
+        <>
+          Jl. Raya, RT.32/RW.010<br />
+          Kecopokan Kec. Sumberpucung<br />
+          Kabupaten Malang, Jawa Tim 65165
+        </>
+      ),
+      link: mapsLink,
+      linkText: "Lihat di Maps",
+      iconBg: "bg-primary/10",
+      iconColor: "text-primary",
+      hoverBg: "group-hover:bg-primary/20",
+    },
+    {
+      icon: Phone,
+      title: "WhatsApp",
+      content: phoneNumber,
+      link: whatsappLink,
+      linkText: "Chat Sekarang",
+      iconBg: "bg-[#25D366]/10",
+      iconColor: "text-[#25D366]",
+      hoverBg: "group-hover:bg-[#25D366]/20",
+    },
+    {
+      icon: Instagram,
+      title: "Instagram",
+      content: "@thr_sumberduren",
+      link: instagramLink,
+      linkText: "Follow Kami",
+      iconBg: "bg-[#E1306C]/10",
+      iconColor: "text-[#E1306C]",
+      hoverBg: "group-hover:bg-[#E1306C]/20",
+    },
+  ];
+
   return (
-    <section id="kontak" className="py-20 md:py-28 bg-muted/50">
-      <div className="container mx-auto px-4">
+    <section id="kontak" className="py-24 md:py-32 bg-gradient-to-b from-muted/30 to-background relative overflow-hidden">
+      {/* Background Decoration */}
+      <div className="absolute top-1/2 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2" />
+      <div className="absolute top-1/2 right-0 w-72 h-72 bg-secondary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+
+      <div className="container mx-auto px-4 relative">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block px-4 py-2 rounded-full bg-secondary/20 text-secondary text-sm font-medium mb-4">
-            Hubungi Kami
+          <span className="badge-primary mb-6">
+            💬 Hubungi Kami
           </span>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
             Ada <span className="text-gradient">Pertanyaan?</span>
           </h2>
           <p className="text-muted-foreground text-lg">
@@ -23,89 +66,45 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          {/* Address Card - Clickable to Maps */}
-          <a
-            href={mapsLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block"
-          >
-            <Card className="border-0 card-shadow group hover:scale-105 transition-all duration-300 cursor-pointer h-full">
-              <CardContent className="p-6 h-full">
-                <div className="flex flex-col items-center text-center gap-4 h-full justify-center">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 group-hover:from-primary/30 group-hover:to-secondary/30 transition-colors flex items-center justify-center">
-                    <MapPin className="w-7 h-7 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-card-foreground text-base mb-2">Lokasi</h4>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      Jl. Raya, RT.32/RW.010<br />
-                      Kecopokan Kec. Sumberpucung<br />
-                      Kabupaten Malang, Jawa Tim 65165
-                    </p>
-                    <span className="inline-block mt-3 text-xs text-primary font-medium">
-                      Lihat di Maps →
-                    </span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </a>
+        {/* Contact Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {contactItems.map((item, index) => (
+            <a
+              key={item.title}
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group animate-fade-up"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <Card className="border border-border/50 hover-lift h-full bg-card/50 backdrop-blur-sm">
+                <CardContent className="p-6 h-full">
+                  <div className="flex flex-col items-center text-center gap-5 h-full">
+                    {/* Icon */}
+                    <div className={`w-16 h-16 rounded-2xl ${item.iconBg} ${item.hoverBg} transition-colors flex items-center justify-center`}>
+                      <item.icon className={`w-8 h-8 ${item.iconColor}`} />
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="flex-1 flex flex-col">
+                      <h4 className="font-serif font-bold text-lg text-card-foreground mb-2">
+                        {item.title}
+                      </h4>
+                      <p className="text-muted-foreground text-sm leading-relaxed flex-1">
+                        {item.content}
+                      </p>
+                    </div>
 
-          {/* WhatsApp Card */}
-          <a
-            href={whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block"
-          >
-            <Card className="border-0 card-shadow group hover:scale-105 transition-all duration-300 cursor-pointer h-full">
-              <CardContent className="p-6 h-full">
-                <div className="flex flex-col items-center text-center gap-4 h-full justify-center">
-                  <div className="w-14 h-14 rounded-full bg-[#25D366]/10 group-hover:bg-[#25D366]/20 transition-colors flex items-center justify-center">
-                    <Phone className="w-7 h-7 text-[#25D366]" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-card-foreground text-base mb-2">WhatsApp</h4>
-                    <p className="text-muted-foreground text-sm">
-                      {phoneNumber}
-                    </p>
-                    <span className="inline-block mt-3 text-xs text-[#25D366] font-medium">
-                      Chat Sekarang →
+                    {/* Link */}
+                    <span className={`inline-flex items-center gap-2 text-sm font-semibold ${item.iconColor} group-hover:gap-3 transition-all`}>
+                      {item.linkText}
+                      <ExternalLink className="w-4 h-4" />
                     </span>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
-          </a>
-
-          {/* Instagram Card */}
-          <a
-            href={instagramLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block"
-          >
-            <Card className="border-0 card-shadow group hover:scale-105 transition-all duration-300 cursor-pointer h-full">
-              <CardContent className="p-6 h-full">
-                <div className="flex flex-col items-center text-center gap-4 h-full justify-center">
-                  <div className="w-14 h-14 rounded-full bg-[#E1306C]/10 group-hover:bg-[#E1306C]/20 transition-colors flex items-center justify-center">
-                    <Instagram className="w-7 h-7 text-[#E1306C]" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-card-foreground text-base mb-2">Instagram</h4>
-                    <p className="text-muted-foreground text-sm">
-                      @thr_sumberduren
-                    </p>
-                    <span className="inline-block mt-3 text-xs text-[#E1306C] font-medium">
-                      Follow Kami →
-                    </span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </a>
+                </CardContent>
+              </Card>
+            </a>
+          ))}
         </div>
       </div>
     </section>
