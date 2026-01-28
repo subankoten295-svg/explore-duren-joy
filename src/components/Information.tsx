@@ -1,4 +1,4 @@
-import { Clock, Car, Lightbulb } from "lucide-react";
+import { Clock, Car } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const infoItems = [
@@ -16,16 +16,6 @@ const infoItems = [
       "Tiket Masuk: GRATIS",
       "Parkir Mobil: Rp 5.000",
       "Parkir Motor: Rp 3.000",
-    ],
-  },
-  {
-    icon: Lightbulb,
-    title: "Tips Berkunjung",
-    items: [
-      "Bawa baju ganti & handuk",
-      "Gunakan sunscreen untuk perlindungan",
-      "Datang pagi untuk menghindari keramaian",
-      "Bawa bekal atau nikmati kuliner lokal",
     ],
   },
 ];
@@ -48,7 +38,7 @@ const Information = () => {
         </div>
 
         {/* Info Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-3xl mx-auto mb-16">
           {infoItems.map((item, index) => (
             <Card
               key={item.title}
