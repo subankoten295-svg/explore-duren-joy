@@ -5,7 +5,7 @@ const Contact = () => {
   const phoneNumber = "087751122679";
   const whatsappLink = `https://wa.me/62${phoneNumber.substring(1)}`;
   const instagramLink = "https://www.instagram.com/thr_sumberduren?igsh=MWV0YXNnb3NrNWJxNg==";
-  const mapsLink = "https://www.google.com/maps/search/?api=1&query=Jl.+Raya+RT.32+RW.010+Kecopokan+Sumberpucung+Malang";
+  const mapsLink = "https://www.google.com/maps/search/?api=1&query=Jl.+Raya+RT.32+RW.010+Kecopokan+Kec.+Sumberpucung+Kabupaten+Malang+Jawa+Timur+65165";
 
   return (
     <section id="kontak" className="py-20 md:py-28 bg-muted/50">
@@ -41,8 +41,8 @@ const Contact = () => {
                     <h4 className="font-semibold text-card-foreground text-base mb-2">Lokasi</h4>
                     <p className="text-muted-foreground text-sm leading-relaxed">
                       Jl. Raya, RT.32/RW.010<br />
-                      Kecopokan, Sumberpucung<br />
-                      Malang 65165
+                      Kecopokan Kec. Sumberpucung<br />
+                      Kabupaten Malang, Jawa Tim 65165
                     </p>
                     <span className="inline-block mt-3 text-xs text-primary font-medium">
                       Lihat di Maps →

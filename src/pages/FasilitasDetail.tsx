@@ -204,7 +204,7 @@ const FasilitasDetail = () => {
                     <MapPin className="w-5 h-5 text-primary mt-0.5" />
                     <div>
                       <p className="text-sm font-medium text-foreground">Lokasi</p>
-                      <p className="text-sm text-muted-foreground">Desa Duren, Kec. Pakisaji, Malang</p>
+                      <p className="text-sm text-muted-foreground">Jl. Raya, RT.32/RW.010, Kecopokan Kec. Sumberpucung, Kabupaten Malang, Jawa Tim 65165</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
