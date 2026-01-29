@@ -1,50 +1,89 @@
 import { useState, useEffect } from "react";
-import { MessageCircle, User, Clock, Send } from "lucide-react";
+import { MessageCircle, User, Clock, Send, Loader2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 interface Comment {
   id: string;
   name: string;
   message: string;
-  createdAt: string;
+  created_at: string;
 }
 
 const VisitorComments = () => {
   const [comments, setComments] = useState<Comment[]>([]);
   const [formData, setFormData] = useState({ name: "", message: "" });
+  const [isLoading, setIsLoading] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Fetch comments from database
+  const fetchComments = async () => {
+    const { data, error } = await supabase
+      .from("comments")
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (error) {
+      console.error("Error fetching comments:", error);
+      toast.error("Gagal memuat komentar");
+    } else {
+      setComments(data || []);
+    }
+    setIsLoading(false);
+  };
 
   useEffect(() => {
-    const savedComments = localStorage.getItem("visitor-comments");
-    if (savedComments) {
-      setComments(JSON.parse(savedComments));
-    }
+    fetchComments();
+
+    // Subscribe to realtime changes
+    const channel = supabase
+      .channel("comments-realtime")
+      .on(
+        "postgres_changes",
+        {
+          event: "INSERT",
+          schema: "public",
+          table: "comments",
+        },
+        (payload) => {
+          setComments((prev) => [payload.new as Comment, ...prev]);
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.name.trim() || !formData.message.trim()) {
       toast.error("Mohon lengkapi nama dan pesan Anda");
       return;
     }
 
-    const newComment: Comment = {
-      id: Date.now().toString(),
+    setIsSubmitting(true);
+
+    const { error } = await supabase.from("comments").insert({
       name: formData.name.trim(),
       message: formData.message.trim(),
-      createdAt: new Date().toISOString(),
-    };
+    });
 
-    const updatedComments = [newComment, ...comments];
-    setComments(updatedComments);
-    localStorage.setItem("visitor-comments", JSON.stringify(updatedComments));
-    
-    toast.success("Komentar Anda berhasil ditambahkan!");
-    setFormData({ name: "", message: "" });
+    if (error) {
+      console.error("Error submitting comment:", error);
+      toast.error("Gagal mengirim komentar. Silakan coba lagi.");
+    } else {
+      toast.success("Komentar Anda berhasil ditambahkan!");
+      setFormData({ name: "", message: "" });
+    }
+
+    setIsSubmitting(false);
   };
 
   const formatDate = (dateString: string) => {
@@ -59,16 +98,17 @@ const VisitorComments = () => {
   };
 
   return (
-    <section id="komentar" className="py-24 md:py-32 bg-gradient-to-b from-background to-muted/20 relative overflow-hidden">
+    <section
+      id="komentar"
+      className="py-24 md:py-32 bg-gradient-to-b from-background to-muted/20 relative overflow-hidden"
+    >
       {/* Background Decoration */}
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
 
       <div className="container mx-auto px-4 relative">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="badge-primary mb-6">
-            ⭐ Ulasan Pengunjung
-          </span>
+          <span className="badge-primary mb-6">⭐ Ulasan Pengunjung</span>
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
             Apa Kata <span className="text-gradient">Mereka?</span>
           </h2>
@@ -97,9 +137,12 @@ const VisitorComments = () => {
                   <Input
                     placeholder="Masukkan nama Anda"
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
                     className="h-12 bg-background/50 border-border/50 focus:border-primary"
                     maxLength={50}
+                    disabled={isSubmitting}
                   />
                 </div>
                 <div>
@@ -109,18 +152,31 @@ const VisitorComments = () => {
                   <Textarea
                     placeholder="Bagikan pengalaman Anda di THR Sumber Duren..."
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
                     rows={4}
                     className="resize-none bg-background/50 border-border/50 focus:border-primary"
                     maxLength={500}
+                    disabled={isSubmitting}
                   />
                 </div>
                 <Button
                   type="submit"
                   className="w-full h-12 btn-gradient text-white border-0 font-semibold rounded-xl"
+                  disabled={isSubmitting}
                 >
-                  <Send className="w-4 h-4 mr-2" />
-                  Kirim Komentar
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      Mengirim...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4 mr-2" />
+                      Kirim Komentar
+                    </>
+                  )}
                 </Button>
               </form>
             </CardContent>
@@ -128,7 +184,16 @@ const VisitorComments = () => {
 
           {/* Comments List */}
           <div className="space-y-4 max-h-[550px] overflow-y-auto pr-2 scrollbar-thin">
-            {comments.length === 0 ? (
+            {isLoading ? (
+              <Card className="border border-border/50 bg-card/50 backdrop-blur-sm">
+                <CardContent className="p-8 text-center">
+                  <Loader2 className="w-8 h-8 text-primary animate-spin mx-auto mb-4" />
+                  <p className="text-muted-foreground font-medium">
+                    Memuat komentar...
+                  </p>
+                </CardContent>
+              </Card>
+            ) : comments.length === 0 ? (
               <Card className="border border-border/50 bg-card/50 backdrop-blur-sm">
                 <CardContent className="p-8 text-center">
                   <div className="w-16 h-16 rounded-full bg-muted/50 flex items-center justify-center mx-auto mb-4">
@@ -144,8 +209,8 @@ const VisitorComments = () => {
               </Card>
             ) : (
               comments.map((comment, index) => (
-                <Card 
-                  key={comment.id} 
+                <Card
+                  key={comment.id}
                   className="border border-border/50 bg-card/80 backdrop-blur-sm animate-fade-up"
                   style={{ animationDelay: `${index * 0.05}s` }}
                 >
@@ -163,7 +228,7 @@ const VisitorComments = () => {
                         </p>
                         <div className="flex items-center gap-1.5 text-xs text-muted-foreground/60 mt-3">
                           <Clock className="w-3 h-3" />
-                          {formatDate(comment.createdAt)}
+                          {formatDate(comment.created_at)}
                         </div>
                       </div>
                     </div>
