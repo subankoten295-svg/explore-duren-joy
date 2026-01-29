@@ -20,20 +20,26 @@ const VisitorComments = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Fetch comments from database
+  // Fetch comments from database with proper error handling
   const fetchComments = async () => {
-    const { data, error } = await supabase
-      .from("comments")
-      .select("*")
-      .order("created_at", { ascending: false });
+    try {
+      const { data, error } = await supabase
+        .from("comments")
+        .select("*")
+        .order("created_at", { ascending: false });
 
-    if (error) {
-      console.error("Error fetching comments:", error);
-      toast.error("Gagal memuat komentar");
-    } else {
-      setComments(data || []);
+      if (error) {
+        console.error("Error fetching comments:", error);
+        toast.error("Gagal memuat komentar");
+      } else {
+        setComments(data || []);
+      }
+    } catch (error) {
+      console.error("Unexpected error fetching comments:", error);
+      toast.error("Terjadi kesalahan saat memuat komentar");
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -70,20 +76,25 @@ const VisitorComments = () => {
 
     setIsSubmitting(true);
 
-    const { error } = await supabase.from("comments").insert({
-      name: formData.name.trim(),
-      message: formData.message.trim(),
-    });
+    try {
+      const { error } = await supabase.from("comments").insert({
+        name: formData.name.trim(),
+        message: formData.message.trim(),
+      });
 
-    if (error) {
-      console.error("Error submitting comment:", error);
-      toast.error("Gagal mengirim komentar. Silakan coba lagi.");
-    } else {
-      toast.success("Komentar Anda berhasil ditambahkan!");
-      setFormData({ name: "", message: "" });
+      if (error) {
+        console.error("Error submitting comment:", error);
+        toast.error("Gagal mengirim komentar. Silakan coba lagi.");
+      } else {
+        toast.success("Komentar Anda berhasil ditambahkan!");
+        setFormData({ name: "", message: "" });
+      }
+    } catch (error) {
+      console.error("Unexpected error submitting comment:", error);
+      toast.error("Terjadi kesalahan. Silakan coba lagi.");
+    } finally {
+      setIsSubmitting(false);
     }
-
-    setIsSubmitting(false);
   };
 
   const formatDate = (dateString: string) => {
