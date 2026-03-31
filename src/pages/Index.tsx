@@ -1,20 +1,14 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Destinations from "@/components/Destinations";
-import Information from "@/components/Information";
-import VisitorComments from "@/components/VisitorComments";
-import Contact from "@/components/Contact";
+import RiceDetector from "@/components/RiceDetector";
+import RiceHeader from "@/components/RiceHeader";
+import RicePriceTable from "@/components/RicePriceTable";
 import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
-      <Hero />
-      <Destinations />
-      <Information />
-      <Contact />
-      <VisitorComments />
+      <RiceHeader />
+      <RiceDetector />
+      <RicePriceTable />
       <Footer />
     </div>
   );
